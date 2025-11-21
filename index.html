@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Session King Cricket Daniel Smith</title>
+<style>
+    /* Fix full viewport height, center content, hide overflow */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;        /* Fixed viewport height */
+        overflow: hidden;     /* No scrolling */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at center, #0d1338 30%, #090d24 100%);
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+        color: #fff;
+    }
+
+    /* Card container */
+    .card {
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(14px);
+        border-radius: 28px;
+        padding: 50px 26px 48px 26px;
+        max-width: 340px;
+        width: 90%;
+        text-align: center;
+        border: 1.4px solid rgba(255,255,255,0.14);
+        box-shadow: 0 0 40px rgba(22, 222, 230, 0.25), 0 0 90px rgba(254, 24, 24, 0.15);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(from 180deg, #16dee6aa, #fe181899, #16dee6aa);
+        animation: rotate 7s linear infinite;
+        opacity: 0.22;
+        z-index: -1;
+        border-radius: 28px;
+    }
+    @keyframes rotate {
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Logo and cricket ball */
+    .logo-ballbox {
+        position: relative;
+        margin-bottom: 26px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .logo-img {
+        width: 89px; /* 8.5% bigger */
+        height: 89px;
+        border-radius: 50%;
+        border: 3px solid #16dee6;
+        box-shadow: 0 0 24px #16dee6aa, inset 0 0 12px #16dee655;
+        background: #fff;
+        margin-top: 34px;
+        display: block;
+    }
+    .cricketball {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #fe1818 65%, #bd430e 100%);
+        border: 2.5px solid #fff;
+        box-shadow: 0 0 10px #fe181877, inset 0 -5px 10px #ff7f5055;
+        animation: bounce 1.6s infinite ease-in-out;
+    }
+    @keyframes bounce {
+        0%, 100% { top: 0; }
+        50% { top: -14px; }
+    }
+
+    /* Headings and subtag */
+    h1 {
+        font-size: 23px;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 22px 0 6px 0;
+        letter-spacing: 1.4px;
+        color: #ffffff;
+    }
+    h1 span {
+        display: block;
+        font-size: 15px;
+        color: #16dee6;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+    .subtag {
+        color: #16dee6;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 12px;
+    }
+
+    /* Animated gradient Join button with border and softer glow */
+    .cta-btn {
+        display: block;
+        width: 100%;
+        border-radius: 14px;
+        color: #fff;
+        font-size: 19px;
+        font-weight: 800;
+        border: 2px solid #16dee6;
+        padding: 14px 0;
+        margin-top: 26px;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(270deg, #fe1818, #16dee6, #fbb034, #8a2be2, #fe1818);
+        background-size: 400% 400%;
+        box-shadow: 0 0 12px rgba(254, 24, 24, 0.4);
+        animation: gradientMove 6s ease infinite, pulseZoom 2.4s ease-in-out infinite;
+        transition: all 0.25s;
+        text-align: center;
+    }
+    .cta-btn::before {
+        content: "";
+        position: absolute;
+        left: -50%;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background: rgba(255,255,255,0.3);
+        transform: skewX(-25deg);
+        animation: shine 2.5s infinite;
+        pointer-events: none;
+    }
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes pulseZoom {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(254, 24, 24, 0.4); }
+        50% { transform: scale(1.06); box-shadow: 0 0 20px rgba(22, 222, 230, 0.5); }
+    }
+    @keyframes shine {
+        0% { left: -50%; }
+        50% { left: 120%; }
+        100% { left: 120%; }
+    }
+    .cta-btn:hover {
+        color: #0b123c;
+        transform: scale(1.08);
+        border-color: #fe1818;
+        box-shadow: 0 0 25px rgba(22, 222, 230, 0.5);
+    }
+
+    /* Footer text */
+    .footer {
+        margin-top: 28px;
+        font-size: 13px;
+        color: #16dee6;
+        letter-spacing: 1px;
+    }
+
+    /* Floating teal particles */
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #16dee6;
+        border-radius: 50%;
+        animation: float 12s linear infinite;
+        opacity: 0.7;
+    }
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) translateX(0);
+            opacity: 0.1;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-20vh) translateX(30px);
+            opacity: 0;
+        }
+    }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '794769140243461');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=794769140243461&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+<script>
+    for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+        document.body.appendChild(particle);
+    }
+</script>
+
+<div class="card">
+    <div class="logo-ballbox">
+        <a href="https://t.me/+yVRgQjEuQkMzZjk1" target="_blank" rel="noopener noreferrer" title="Join Session King Cricket Telegram">
+            <div class="cricketball"></div>
+            <img src="https://assets.zyrosite.com/xRbO5Wp1qY1JjnO1/img_20251121_113505_131-rb2gQoccyX4LOOdi.jpg" alt="Session King Cricket Daniel Logo" class="logo-img" />
+        </a>
+    </div>
+    <h1>SESSION KING CRICKET<br /><span>Daniel Smith</span></h1>
+    <div class="subtag">Free Cricket Tips • 1 Lakh+ Members</div>
+    <a href="https://t.me/+yVRgQjEuQkMzZjk1" class="cta-btn" target="_blank" rel="noopener noreferrer">Join Now</a>
+    <div class="footer">© 2025 Premium Cricket Channel</div>
+</div>
+</body>
+</html>
